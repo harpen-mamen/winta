@@ -1,0 +1,1 @@
+<div class="bos-sidebar-footer"><span class="bos-live-dot"></span><span>Monitoring Internal<small>Kabupaten Kepulauan Sangihe</small></span><x-filament::icon icon="heroicon-o-shield-check" class="h-5 w-5" /></div>

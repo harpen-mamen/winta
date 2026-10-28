@@ -1,0 +1,118 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+
+@layer base {
+    :root { --bos-navy: #102a43; --bos-navy-deep: #0a1d32; --bos-teal: #0d9488; }
+}
+
+.fi-body { @apply bg-slate-50; }
+.dark .fi-body { @apply bg-slate-950; }
+.fi-main { @apply py-6; }
+.fi-header-heading { @apply font-bold tracking-tight text-slate-900; font-size: clamp(1.45rem, 2vw, 1.9rem); }
+.dark .fi-header-heading { @apply text-slate-50; }
+.fi-header-subheading { @apply text-sm text-slate-500; }
+.fi-topbar { @apply border-b border-slate-200/80 shadow-none; }
+.dark .fi-topbar { @apply border-slate-800; }
+.bos-brand { @apply flex items-center gap-3 text-left; }
+.bos-brand-mark { @apply grid size-10 shrink-0 place-items-center rounded-xl bg-teal-700 text-white shadow-sm; }
+.bos-brand-copy { @apply flex flex-col gap-0.5; }
+.bos-brand-copy strong { @apply text-sm font-bold text-slate-900; }
+.bos-brand-copy small { @apply text-[9px] font-semibold tracking-[0.14em] text-slate-500; }
+.dark .bos-brand-copy strong { @apply text-white; }
+.dark .bos-brand-copy small { @apply text-slate-400; }
+
+/* Keep the native Filament navigation, drawer, tooltips and keyboard behavior. */
+.fi-body .fi-sidebar {
+    background: linear-gradient(172deg, var(--bos-navy), var(--bos-navy-deep) 85%);
+    border-inline-end: 1px solid #203a52;
+}
+.fi-sidebar .fi-sidebar-nav { @apply gap-y-5 px-4 py-5; scrollbar-color: #36526c transparent; scrollbar-width: thin; }
+.fi-sidebar .fi-sidebar-nav-groups { @apply mx-0 gap-y-5; }
+.fi-sidebar .fi-sidebar-group-label { @apply text-[10px] font-bold tracking-[0.16em]; color: #8ca9c4; }
+.fi-sidebar .fi-sidebar-group-btn > .fi-icon { color: #8ca9c4; }
+.fi-sidebar .fi-sidebar-item-btn { @apply min-h-10 rounded-xl px-3 py-2.5 transition-colors duration-150; }
+.fi-sidebar .fi-sidebar-item-btn > .fi-sidebar-item-label { @apply text-[13px] font-medium; color: #d9e6f2; }
+.fi-sidebar .fi-sidebar-item-btn > .fi-icon { @apply size-5; color: #94b4d0; }
+.fi-sidebar .fi-sidebar-item.fi-sidebar-item-has-url > .fi-sidebar-item-btn:hover,
+.fi-sidebar .fi-sidebar-item.fi-sidebar-item-has-url > .fi-sidebar-item-btn:focus-visible { background: #ffffff0d; }
+.fi-sidebar .fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
+    background: #0f766e;
+    box-shadow: inset 3px 0 0 #5eead4, 0 5px 15px #00000012;
+}
+.fi-sidebar .fi-sidebar-item.fi-active > .fi-sidebar-item-btn > .fi-sidebar-item-label,
+.fi-sidebar .fi-sidebar-item.fi-active > .fi-sidebar-item-btn > .fi-icon { @apply text-white; }
+.fi-sidebar .fi-sidebar-group-dropdown-trigger-btn { @apply text-slate-200 hover:bg-white/10; }
+.fi-sidebar .fi-sidebar-group-dropdown-trigger-btn .fi-icon { color: #b5d0e4; }
+.fi-sidebar .fi-sidebar-header { background: var(--bos-navy-deep); border-bottom: 1px solid #294158; }
+.fi-sidebar .bos-brand-copy strong { @apply text-white; }
+.fi-sidebar .bos-brand-copy small { @apply text-slate-300; }
+.bos-sidebar-identity { @apply flex items-center gap-3 rounded-xl border p-3; border-color: #ffffff14; background: #ffffff06; }
+.bos-sidebar-emblem { @apply grid size-10 shrink-0 place-items-center rounded-xl text-teal-200; background: #2dd4bf15; }
+.bos-sidebar-identity > span { @apply flex flex-col gap-1; }
+.bos-sidebar-identity strong { @apply text-xs font-semibold text-white; }
+.bos-sidebar-identity small { @apply text-[10px]; color: #91acc3; }
+.bos-sidebar-footer { @apply mx-4 mb-4 flex items-center gap-2.5 rounded-xl border px-3 py-3; border-color: #ffffff12; }
+.bos-sidebar-footer > span:nth-child(2) { @apply flex-1 text-[11px] font-medium text-slate-200; }
+.bos-sidebar-footer small { @apply mt-0.5 block text-[9px]; color: #91acc3; }
+.bos-sidebar-footer > .fi-icon { @apply text-teal-300; }
+.bos-live-dot { @apply inline-block size-2 shrink-0 rounded-full bg-teal-300; box-shadow: 0 0 0 4px #2dd4bf12; }
+.fi-sidebar:not(.fi-sidebar-open) .bos-sidebar-identity,
+.fi-sidebar:not(.fi-sidebar-open) .bos-sidebar-footer { @apply hidden; }
+
+.fi-section { @apply rounded-2xl shadow-sm; }
+.fi-section-header { @apply py-4; }
+.fi-section-header-heading { @apply text-sm font-semibold; }
+.fi-fo-field-label-content { @apply text-xs font-semibold; }
+.fi-input-wrp { @apply rounded-xl; }
+.fi-btn { @apply rounded-xl; }
+.fi-ta-ctn { @apply rounded-2xl shadow-sm; }
+.fi-ta-header-cell { @apply bg-slate-50/90 py-3; }
+.dark .fi-ta-header-cell { @apply bg-slate-900; }
+.fi-ta-row { transition: background-color 120ms ease; }
+.fi-ta-row:hover { @apply bg-teal-50/40; }
+.dark .fi-ta-row:hover { @apply bg-teal-950/30; }
+.fi-ta-text-item { @apply text-[13px]; }
+.fi-wi-stats-overview-stat { @apply relative overflow-hidden rounded-2xl border border-slate-200/75 p-5 shadow-sm transition-shadow duration-150 hover:shadow-md; }
+.dark .fi-wi-stats-overview-stat { @apply border-slate-800; }
+.fi-wi-stats-overview-stat::before { content: ''; @apply absolute inset-x-0 top-0 h-[3px]; background: var(--bos-stat-accent, #0d9488); }
+.fi-wi-stats-overview-stat-label-ctn { @apply gap-2; }
+.fi-wi-stats-overview-stat-label-ctn > .fi-icon { @apply size-5; color: var(--bos-stat-accent, #0d9488); }
+.fi-wi-stats-overview-stat-label { @apply text-xs font-medium text-slate-500; }
+.fi-wi-stats-overview-stat-value { @apply mt-3 font-bold tracking-tight; font-size: clamp(1.1rem, 1.6vw, 1.55rem); font-variant-numeric: tabular-nums; }
+.fi-wi-stats-overview-stat-description { @apply text-[10px] leading-relaxed; }
+.bos-stat-blue { --bos-stat-accent: #2563eb; }
+.bos-stat-teal { --bos-stat-accent: #0d9488; }
+.bos-stat-violet { --bos-stat-accent: #7c3aed; }
+.bos-stat-amber { --bos-stat-accent: #d97706; }
+.bos-stat-rose { --bos-stat-accent: #e11d48; }
+.bos-stat-sky { --bos-stat-accent: #0284c7; }
+
+.bos-demo-banner { @apply mb-5 flex items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs leading-relaxed text-amber-900; }
+.dark .bos-demo-banner { @apply border-amber-800 bg-amber-950/50 text-amber-100; }
+.bos-demo-badge { @apply mt-0.5 shrink-0 rounded-md bg-amber-200 px-2 py-1 text-[9px] font-extrabold tracking-wider text-amber-950; }
+.bos-overview { @apply grid gap-7 overflow-hidden rounded-2xl p-6 text-white sm:p-8 lg:grid-cols-[1.4fr_1fr]; background: linear-gradient(115deg, #102a43 0%, #12394b 65%, #0d5359 100%); }
+.bos-eyebrow { @apply text-[9px] font-bold tracking-[0.16em] text-teal-200; }
+.bos-overview h2 { @apply mt-3 text-2xl font-bold tracking-tight sm:text-3xl; line-height: 1.25; }
+.bos-overview-copy > p { @apply mt-3 max-w-lg text-xs leading-relaxed text-slate-300; }
+.bos-overview-actions { @apply mt-5 flex flex-wrap gap-3; }
+.bos-overview-actions a { @apply flex items-center gap-2 rounded-lg border border-white/15 bg-white/10 px-3 py-2 text-xs font-semibold text-white transition-colors hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300; }
+.bos-progress-panel { @apply self-center rounded-xl border border-white/10 bg-white/5 p-5; }
+.bos-progress-title { @apply flex items-center gap-2.5 text-[9px] font-bold tracking-[0.13em] text-teal-100; }
+.bos-progress-item { @apply mt-5; }
+.bos-progress-item > div:first-child { @apply mb-2 flex justify-between gap-3 text-[11px] text-slate-200; }
+.bos-progress-item strong { @apply font-bold text-white; }
+.bos-progress-track { @apply h-1.5 overflow-hidden rounded-full bg-white/10; }
+.bos-progress-track > span { @apply block h-full rounded-full bg-teal-300; transition: width 200ms ease; }
+.bos-progress-panel > p { @apply mt-4 text-[9px] leading-relaxed text-slate-300; }
+
+@media (max-width: 639px) {
+    .bos-brand-copy strong { @apply text-xs; }
+    .bos-brand-copy small { font-size: 7px; letter-spacing: 0.08em; }
+    .bos-demo-banner { @apply flex-col gap-2; }
+    .bos-overview { @apply gap-5 p-5; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .bos-progress-track > span, .fi-sidebar-item-btn, .fi-wi-stats-overview-stat, .fi-ta-row { transition: none; }
+}
